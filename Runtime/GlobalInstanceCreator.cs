@@ -42,13 +42,15 @@ namespace Kogane.Internal
         //==============================================================================
         // 関数(static)
         //==============================================================================
+#if UNITY_EDITOR
         /// <summary>
         /// ゲーム起動時に呼び出されます
         /// </summary>
-        [RuntimeInitializeOnLoadMethod( RuntimeInitializeLoadType.BeforeSceneLoad )]
+        [UnityEditor.InitializeOnEnterPlayMode]
         private static void RuntimeInitializeOnLoadMethod()
         {
-            m_isInitialized = false;
+            m_isInitialized = default;
         }
+#endif
     }
 }
